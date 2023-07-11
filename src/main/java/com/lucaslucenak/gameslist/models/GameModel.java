@@ -12,32 +12,47 @@ public class GameModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(columnDefinition = "TEXT")
     private String title;
+
+    private Double score;
 
     private Integer gameYear;
 
     private String genre;
 
-    private String platform;
+    private String platforms;
 
+    @Column(columnDefinition = "TEXT")
     private String imgUrl;
 
+    @Column(columnDefinition = "TEXT")
     private String shortDescription;
 
-    public GameModel(Long id, String title, Integer gameYear, String genre, String platform, String imgUrl, String shortDescription, String longDescription) {
+    @Column(columnDefinition = "TEXT")
+    private String longDescription;
+
+    public GameModel(Long id, String title, Double score, Integer gameYear, String genre, String platforms, String imgUrl, String shortDescription, String longDescription) {
         this.id = id;
         this.title = title;
+        this.score = score;
         this.gameYear = gameYear;
         this.genre = genre;
-        this.platform = platform;
+        this.platforms = platforms;
         this.imgUrl = imgUrl;
         this.shortDescription = shortDescription;
         this.longDescription = longDescription;
     }
 
-    private String longDescription;
-
     public GameModel() {
+    }
+
+    public Double getScore() {
+        return score;
+    }
+
+    public void setScore(Double score) {
+        this.score = score;
     }
 
     public Integer getGameYear() {
@@ -73,11 +88,11 @@ public class GameModel {
     }
 
     public String getPlatform() {
-        return platform;
+        return platforms;
     }
 
-    public void setPlatform(String platform) {
-        this.platform = platform;
+    public void setPlatform(String platforms) {
+        this.platforms = platforms;
     }
 
     public String getImgUrl() {

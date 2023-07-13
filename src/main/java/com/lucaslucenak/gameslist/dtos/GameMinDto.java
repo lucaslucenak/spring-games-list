@@ -1,6 +1,7 @@
 package com.lucaslucenak.gameslist.dtos;
 
 import com.lucaslucenak.gameslist.models.GameModel;
+import com.lucaslucenak.gameslist.projections.GameMinProjection;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,6 +24,14 @@ public class GameMinDto {
         this.gameYear = gameModel.getGameYear();
         this.imgUrl = gameModel.getImgUrl();
         this.shortDescription = gameModel.getShortDescription();
+    }
+
+    public GameMinDto(GameMinProjection gameMinProjection) {
+        this.id = gameMinProjection.getId();
+        this.title = gameMinProjection.getTitle();
+        this.gameYear = gameMinProjection.getGameYear();
+        this.imgUrl = gameMinProjection.getImgUrl();
+        this.shortDescription = gameMinProjection.getShortDescription();
     }
 
     public Long getId() {
